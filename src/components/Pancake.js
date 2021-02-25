@@ -11,9 +11,17 @@ class Pancake extends React.Component {
   }
 
   // TODO: create a componentDidMount() which will start the interval to count how long the pancake has been cooking
+  // the startInterval() method is already there. All you need to do is add a lifecycle method in <Pancake /> at componentDidMount() (that's the point at which the pancake component gets added to the page) which will start the counter.
+  componentDidMount() {
+    this.startInterval()
+  } 
 
   // TODO: create a componentWillUnmount() which will clear the interval
-
+  // As you can see, a cleanUpInterval() function is all set up for you, so all you have left to do it call it just before the component gets unmounted from the page. That will be in the componentWillUnmount() method.
+  componentWillUnmount() {
+    this.cleanUpInterval()
+  }
+  
   updateCounter = () => {
     this.setState({
       timeCooked: this.state.timeCooked + 1
